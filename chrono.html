@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="time">
+        00:00:00
+    </div>
+    <script>
+        let hours = 0, minutes = 0, secondes = 0;
+        function gestionChrono() {
+            secondes++;
+            if (secondes === 60) {
+                secondes = 0;
+                minutes++;
+            }
+            if (minutes === 60) {
+                minutes = 0;
+                hours++;
+
+            }
+
+
+            
+            let formatHours = hours.toString().padStart(2, "0");
+            let formatMinutes = minutes.toString().padStart(2, "0");
+            let formatSecondes = secondes.toString().padStart(2, "0");
+
+            document.getElementById('time').textContent = `${formatHours}:${formatMinutes}:${formatSecondes}`;
+        }
+        window.onload = function () {
+            setInterval(gestionChrono, 1000);
+        }
+
+    </script>
+</body>
+
+</html>
